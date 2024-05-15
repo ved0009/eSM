@@ -1,0 +1,84 @@
+/* card.component.css */
+
+/* Common styles */
+.card-container,.stu , .col-sm-2v {
+    display: flex;
+    flex-wrap: wrap; 
+    
+  }
+
+  
+  .card {
+    width: 320px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px; /* Add some space between cards */
+  }
+  .custom-text-color{
+    color: #4b4b4b;
+  }
+  .row,.row f{
+    margin: 12px;
+  }
+
+  .details {
+    text-align: center;
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .card-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .icon-circle,
+  .icon-circle-add {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #edf1f7;
+    cursor: pointer;
+  }
+  .threebox{
+    padding: 3px;
+  }
+  .icon-circle:hover,
+  .icon-circle-add:hover {
+    background-color: #949faa;
+  }
+  
+  .empty-state {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .card {
+      width: calc(50% - 20px); /* Two cards per row */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .card {
+      width: calc(100% - 20px); /* Single card per row */
+    }
+  }
+  
