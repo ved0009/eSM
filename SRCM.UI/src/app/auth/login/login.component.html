@@ -1,0 +1,53 @@
+
+
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-header>Login</nb-card-header>
+      <nb-card-body>
+        <div class="row ">
+          <div class="col-lg-7 col-md-7 col-sm-12"></div>
+          <div class="col-lg-5 col-md-5 col-sm-12">
+            <div class="card m-5 p-5">
+              <form [formGroup]="loginform" >
+
+                <input
+                  nbInput
+                  fullWidth
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  formControlName="username"
+                />
+                <div *ngIf="loginform.get('username').invalid && (loginform.get('username').dirty || loginform.get('username').touched)">
+                  <span class="text-danger">Enter a valid username</span>
+                </div>
+
+                <input
+                  nbInput
+                  fullWidth
+                  class="my-2"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  formControlName="password"
+                />
+                <div *ngIf="loginform.get('password').invalid && (loginform.get('password').dirty || loginform.get('password').touched)">
+                  <span class="text-danger">Enter a valid password</span>
+                </div>
+                <button nbButton class="float-left" [disabled]="this.loginform.invalid"   status="primary" (click)="login()">Login</button>
+              </form>
+              <p><a href="#">Forgot username or password?</a></p>
+              <p><a href="#">Create a new account</a></p>
+            </div>
+
+          </div>
+        </div>
+
+
+      </nb-card-body>
+    </nb-card>
+
+
+  </nb-layout-column>
+ </nb-layout>
