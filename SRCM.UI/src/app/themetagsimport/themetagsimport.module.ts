@@ -4,6 +4,7 @@ import { NbAccordionModule, NbActionsModule, NbButtonModule, NbCalendarModule, N
 import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { LayoutRoutingModule } from '../pages/layout/layout-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { LayoutRoutingModule } from '../pages/layout/layout-routing.module';
     NbSelectModule,
     NbCalendarModule,
     NbSelectModule,
-    NbContextMenuModule
+    NbContextMenuModule,
+    ReactiveFormsModule
   ],
   exports:[
     CommonModule,
