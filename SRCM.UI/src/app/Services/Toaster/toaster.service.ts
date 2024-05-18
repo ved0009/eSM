@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NbToastrService } from '@nebular/theme';
-import { webToasterPosition } from './ToastSettings';
+ import { webToasterPosition } from './ToastSettings';
 
 @Injectable({
   providedIn: 'root'

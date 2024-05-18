@@ -54,6 +54,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputLastName" class="label">Select Class</label>
+ 
                               <!-- classLists -->
                               <label for="inputEmail" class="Mandatory">*</label>
                               <select  nbSelect fullWidth  class="form-control"    nbInput fullWidth id="inputLastName"
@@ -63,6 +64,14 @@
                                 <option *ngFor="let item of classLists" [values]="item.id">{{item.className}}</option>
                               </select>
 
+ 
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <input type="text"
+                              nbInput fullWidth id="inputLastName"
+                              placeholder="Select"
+                              formControlName="Class"
+                              >
+ 
                             </div>
                           </div>
                         </div>
@@ -70,8 +79,10 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputEmail" class="label">Picture</label>
-                              <input type="file" nbInput fullWidth id="inputEmail" (change)="onFileSelected($event)">
-                              <label class="Mandatory">Max Size 100Kb</label>
+                               <input type="file" nbInput fullWidth id="inputEmail" (change)="onFileSelected($event)">
+ 
+                              <input type="file" nbInput fullWidth id="inputEmail" >
+                               <label class="Mandatory">Max Size 100Kb</label>
 
                             </div>
                           </div>
@@ -98,13 +109,17 @@
                         <div class="row">
                             <div class="col-sm-4">
                               <div class="form-group">
-                                <!-- <img [src]="this.imageUrl" alt="image "/> -->
+                                 <!-- <img [src]="this.imageUrl" alt="image "/> -->
+  
+   
 
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
-                                <button class="btn-update mt-4" (click)="UploadImage()" nbButton >Upload image</button>
+                                 <button class="btn-update mt-4" (click)="UploadImage()" nbButton >Upload image</button>
+ 
+   
 
                               </div>
                             </div>
@@ -164,7 +179,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputEmail" class="label">Gender</label>
-                              <select  nbSelect fullWidth  class="form-control"  nbInput fullWidth id="inputGender"
+                               <select  nbSelect fullWidth  class="form-control"  nbInput fullWidth id="inputGender"
                               placeholder="Gender"
                               formControlName="Gender">
                                 <option>Select</option>
@@ -173,7 +188,11 @@
                               <!-- <input type="email" nbInput fullWidth id="inputEmail"
                               placeholder="Gender"
                               formControlName="Gender"> -->
-                            </div>
+ 
+                              <input type="email" nbInput fullWidth id="inputEmail"
+                              placeholder="Gender"
+                              formControlName="Gender">
+                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
@@ -185,7 +204,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputWebsite" class="label">OSC</label>
-                              <select  nbSelect fullWidth  class="form-control"  id="inputosc"
+                               <select  nbSelect fullWidth  class="form-control"  id="inputosc"
                               placeholder="Religion"
                               formControlName="OSC">
                                 <option [value]="2">Select</option>
@@ -194,7 +213,10 @@
                               </select>
                               <!-- <input type="text" nbInput fullWidth id="inputWebsite" placeholder="SELECT"
                               formControlName="OSC"> -->
-                            </div>
+ 
+                              <input type="text" nbInput fullWidth id="inputWebsite" placeholder="SELECT"
+                              formControlName="OSC">
+                             </div>
                           </div>
                         </div>
                         <div class="row">
@@ -216,7 +238,7 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label for="inputWebsite" class="label">Religion</label>
-                                <select  nbSelect fullWidth  class="form-control"  id="inputWebsite"
+                                 <select  nbSelect fullWidth  class="form-control"  id="inputWebsite"
                                 placeholder="Religion"
                                 formControlName="Religion">
                                   <option>Select</option>
@@ -225,7 +247,11 @@
                                 <!-- <input type="text" nbInput fullWidth id="inputWebsite"
                                 placeholder="Religion"
                                 formControlName="Religion"> -->
-                              </div>
+ 
+                                <input type="text" nbInput fullWidth id="inputWebsite"
+                                placeholder="Religion"
+                                formControlName="Religion">
+                               </div>
                             </div>
 
                           </div>
@@ -233,7 +259,7 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label for="inputEmail" class="label">Blood Group</label>
-                                <!-- <input type="textarea" nbInput fullWidth id="inputEmail"
+                                 <!-- <input type="textarea" nbInput fullWidth id="inputEmail"
                                > -->
                                 <select  nbSelect fullWidth  class="form-control"  id="inputbloodgroup"
                                 placeholder="Blood Group"
@@ -241,7 +267,11 @@
                                   <option>Select</option>
                                   <option *ngFor="let item of bloodGroup" [values]="item.id">{{item.name}}</option>
                                 </select>
-                              </div>
+ 
+                                <input type="textarea" nbInput fullWidth id="inputEmail"
+                                placeholder="Blood Group"
+                                formControlName="BloodGroup">
+                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">

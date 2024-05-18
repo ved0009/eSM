@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import {
+ import {
   BloodGroup,
   Gender,
   Religion,
@@ -8,6 +8,7 @@ import {
 import { MasterClientService } from "../../../../Services/MasterClient/master-client.service";
 import { ToasterService } from "../../../../Services/Toaster/toaster.service";
 import { webToasterPosition } from "../../../../Services/Toaster/ToastSettings";
+ 
 
 @Component({
   selector: "ngx-new-students",
@@ -40,7 +41,7 @@ export class NewStudentsComponent {
     },
   };
   formErrors = {};
-  religion: { id: number; name: string }[];
+   religion: { id: number; name: string }[];
   selectedFile: File = null;
   imageUrl: string = "";
   gender: { id: number; name: string }[];
@@ -56,22 +57,28 @@ export class NewStudentsComponent {
     this.religion = Religion;
     this.gender = Gender;
     this.bloodGroup = BloodGroup;
-    this.StudentBasicForm = this.formBuilder.group({
+=======
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+     this.StudentBasicForm = this.formBuilder.group({
       StudentName: ["", [Validators.required]],
       RegistrationNo: ["", [Validators.required]],
       Class: ["", [Validators.required]],
       DateOfAdmission: ["", [Validators.required]],
       DiscountInFee: ["", [Validators.required]],
       MobileNoWhatsapp: ["", Validators.pattern("0-9")],
-      ImagesUrl: ["", Validators.required],
-
+       ImagesUrl: ["", Validators.required],
+ 
+ 
       DOB: [""],
       StudentBirthForm: [""],
       isOrphan: [""],
       Gender: [""],
       Cast: [""],
-      OSC: ["2"],
-      IdentificationMark: [""],
+       OSC: ["2"],
+       OSC: [""],
+       IdentificationMark: [""],
       PreviousSchool: [""],
       Religion: [""],
       BloodGroup: [""],
@@ -103,13 +110,13 @@ export class NewStudentsComponent {
     //        this.logValidationErrors()
     //     }
     //  );
-    this.getAllClass();
-  }
+     this.getAllClass();
+    }
 
   onSubmit(): void {
     console.log(this.StudentBasicForm.value);
 
-    // RegistrationNo: ["", [Validators.required]],
+     // RegistrationNo: ["", [Validators.required]],
 
     // StudentBirthForm: [""],
 
@@ -173,7 +180,57 @@ export class NewStudentsComponent {
     })
 
 
-  }
+ 
+    const data = {
+      studentId: 0,
+      name: this.StudentBasicForm.controls["name"].value,
+      class: this.StudentBasicForm.controls["name"].value,
+      section: this.StudentBasicForm.controls["name"].value,
+      image: this.StudentBasicForm.controls["name"].value,
+      dateOfAdmission: this.StudentBasicForm.controls["name"].value,
+      feeDiscount: this.StudentBasicForm.controls["name"].value,
+      mobile: this.StudentBasicForm.controls["name"].value,
+      dateOfBirth: this.StudentBasicForm.controls["name"].value,
+      studentBirthNicId: this.StudentBasicForm.controls["name"].value,
+      orphan: this.StudentBasicForm.controls["name"].value,
+      gender: this.StudentBasicForm.controls["name"].value,
+      osc: this.StudentBasicForm.controls["name"].value,
+      identityMarks: this.StudentBasicForm.controls["name"].value,
+      previousSchool: this.StudentBasicForm.controls["name"].value,
+      religion: this.StudentBasicForm.controls["name"].value,
+      bloodGroup: this.StudentBasicForm.controls["name"].value,
+      boardRollNumber: this.StudentBasicForm.controls["name"].value,
+      familyAddress: this.StudentBasicForm.controls["name"].value,
+      diseaseIfAny: this.StudentBasicForm.controls["name"].value,
+      anyAdditionalNotes: this.StudentBasicForm.controls["name"].value,
+      totalSiblings: this.StudentBasicForm.controls["name"].value,
+      address: this.StudentBasicForm.controls["name"].value,
+      insertUpdateStudentDetailsParentsInfos: [
+        {
+          studentId: 0,
+          name: this.StudentBasicForm.controls["name"].value,
+          nationalId: this.StudentBasicForm.controls["name"].value,
+          occupationType: this.StudentBasicForm.controls["name"].value,
+          parrentType: "Father",
+          educationType: this.StudentBasicForm.controls["name"].value,
+          mobile: this.StudentBasicForm.controls["name"].value,
+          profession: this.StudentBasicForm.controls["name"].value,
+          income: this.StudentBasicForm.controls["name"].value,
+        },
+        {
+          studentId: 0,
+          name: this.StudentBasicForm.controls["name"].value,
+          nationalId: this.StudentBasicForm.controls["name"].value,
+          occupationType: this.StudentBasicForm.controls["name"].value,
+          parrentType: "Mother",
+          educationType: this.StudentBasicForm.controls["name"].value,
+          mobile: this.StudentBasicForm.controls["name"].value,
+          profession: this.StudentBasicForm.controls["name"].value,
+          income: this.StudentBasicForm.controls["name"].value,
+        },
+      ],
+    };
+   }
 
   //   logValidationErrors() {
   //     debugger
@@ -182,7 +239,7 @@ export class NewStudentsComponent {
   toggleExpand() {
     this.isExpand = !this.isExpand;
   }
-  getAllClass() {
+   getAllClass() {
     this._api.GetList("Classes", "GetAllClassess").subscribe({
       next: (res) => {
         if (res.statusCode === 200 && res.success) {

@@ -19,6 +19,10 @@ namespace SCRM.API.Controllers
         {
             _commonService = commonService;
             _env = env;
+
+        public CommonController(ICommonService commonService)
+        {
+            _commonService = commonService;
         }
 
         [HttpGet("GetProfileDetails")]
@@ -28,6 +32,7 @@ namespace SCRM.API.Controllers
             var data = _commonService.ProfileDetails(userId);
             return Ok(data);
         }
+
         [HttpGet("GetRoles")]
         public IActionResult GetRoles()
         {
@@ -59,6 +64,7 @@ namespace SCRM.API.Controllers
             var fileUrl = $"{Request.Scheme}://{Request.Host}/Images/{image.FileName}";
             return Ok(new { url = fileUrl });
         }
+
 
 
     }   

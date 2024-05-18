@@ -1,17 +1,18 @@
-import { Component, Input } from '@angular/core';
+ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterService } from '../../../../Services/Toaster/toaster.service';
 import { MasterClientService } from '../../../../Services/MasterClient/master-client.service';
 import { DialongService } from '../../../../Services/Dialong/dialong.service';
 import { webToasterPosition } from '../../../../Services/Toaster/ToastSettings';
-
+ import { Component } from '@angular/core';
+ 
 @Component({
   selector: 'ngx-all-employees',
   templateUrl: './all-employees.component.html',
   styleUrls: ['./all-employees.component.scss']
 })
 export class AllEmployeesComponent {
-  EmployeeLists: any;
+   EmployeeLists: any;
   constructor(
     private router: Router,
     private toaster: ToasterService,
@@ -96,5 +97,5 @@ export class AllEmployeesComponent {
 
   delete() {
     //  this._dialong
-  }
+  } 
 }

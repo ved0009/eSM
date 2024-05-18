@@ -97,11 +97,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: "list-outline",
       },
       {
+ 
         title: "Add Employees",
         link: "/scrm/School/Employees/newemployees",
         icon: "person-add-outline",
       },
       {
+ 
         title: "Staff ID Card",
         link: "/scrm/School/Employees/staffcard",
         icon: "person-add-outline",

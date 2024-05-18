@@ -12,7 +12,8 @@ namespace SCRM.IService
         Response CheckDb();
 
         Response ProfileDetails(int userid);
+  
         Response GetRole();
-         
+ 
      }
 }

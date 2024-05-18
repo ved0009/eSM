@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
+
 using Microsoft.IdentityModel.Tokens;
 using SCRM.IService;
 using SCRM.Service;
@@ -19,6 +20,7 @@ builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 268435456; // 256 MB
 });
+ 
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -59,6 +61,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+ 
     app.UseDeveloperExceptionPage();
 
 }
@@ -72,7 +75,10 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseStaticFiles(); // Add this line
+ }
 
+app.UseHttpsRedirection();
+ 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
