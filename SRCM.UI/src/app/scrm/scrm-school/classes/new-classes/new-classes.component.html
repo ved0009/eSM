@@ -1,0 +1,45 @@
+<nb-card>
+    <nb-card-header>
+        <h5>Add New Class</h5></nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="newClassForm">
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                  <label for="inputFirstName" class="label">Class Name</label>
+                  <label for="inputEmail" class="Mandatory">*</label>
+                <input type="text" nbInput fullWidth id="inputWebsite"
+                placeholder="Name of Class"
+                formControlName="classname"
+                 >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                  <label for="inputLastName" class="label">Monthly Tuition Fees</label>
+                  <label for="inputEmail" class="Mandatory">*</label>
+                <input type="text" nbInput fullWidth id="inputWebsite"
+                placeholder="Monthly Tuition Fees"
+                formControlName="tutionfee"
+                 >
+              </div>
+            </div>
+          </div>
+
+        <div class="form-group">
+                <label for="inputLastName" class="label">Select Class Teacher</label>
+                <label for="inputEmail" class="Mandatory">*</label>
+                <nb-select  fullWidth placeholder="Select"
+                formControlName="classteacher">
+                    <nb-option value="1">1</nb-option>
+                    <nb-option value="2">2</nb-option>
+                    <nb-option value="3">3</nb-option>
+                    <nb-option value="4">4</nb-option>
+                  </nb-select>
+
+        </div>
+      </form>
+        <button type="submit"     class="submit-button" (click)="onSubmit()">Create</button>
+
+    </nb-card-body>
+  </nb-card>

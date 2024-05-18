@@ -1,0 +1,322 @@
+<nb-card>
+  <nb-card-header>
+    <h5>Add New employee</h5></nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-sm-9">
+
+            </div>
+            <div class="col-sm-3 d-flex justify-content-end">
+
+              <button nbButton status="primary" size="small" (click)="toggleExpand()" class="mr-2">
+                  Expand / Collapse All
+              </button>
+
+            </div>
+          </div>
+        <form [formGroup]="EmployeeBasicForm">
+<nb-accordion>
+
+    <nb-accordion-item #item [expanded]="isExpand">
+      <nb-accordion-item-header>
+        <h6>Employee Basic Info</h6>
+      </nb-accordion-item-header>
+
+      <nb-accordion-item-body>
+        <div class="row show-grid">
+            <div class="col-12 col-md-12">
+
+
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputFirstName" class="label">Employee Name</label>
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <input type="text"
+                              nbInput
+                              fullWidth id="inputFirstName"
+                              placeholder="Name of Student"
+                              formControlName="StudentName" >
+
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputLastName" class="label">Registration</label>
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <input type="text"
+                              nbInput fullWidth id="inputLastName"
+                              placeholder="Registration No"
+                              formControlName="RegistrationNo"
+                              >
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputLastName" class="label">Employee role</label>
+                              <!-- classLists -->
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <select  nbSelect fullWidth  class="form-control"    nbInput fullWidth id="inputLastName"
+                              placeholder="Select"
+                              formControlName="Class">
+                                <option>Select</option>
+                                <option *ngFor="let item of RolesLists" [values]="item.id">{{item.roleName}}</option>
+                              </select>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputEmail" class="label">Picture</label>
+                              <input type="file" nbInput fullWidth id="inputEmail" (change)="onFileSelected($event)">
+                              <label class="Mandatory">Max Size 100Kb</label>
+
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputWebsite" class="label">Date of registration</label>
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <input type="date" nbInput fullWidth id="inputWebsite"
+                              placeholder="Date of Admission"
+                              formControlName="DateOfAdmission">
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputWebsite" class="label">Monthly salary</label>
+                              <label for="inputEmail" class="Mandatory">*</label>
+                              <input type="text" nbInput fullWidth id="inputWebsite"
+                              placeholder="Discount In Fee"
+                              formControlName="DiscountInFee"
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <!-- <img [src]="this.imageUrl" alt="image "/> -->
+
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <button class="btn-update mt-4" (click)="UploadImage()" nbButton >Upload image</button>
+
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputWebsite" class="label">Mobile No. for SMS/Whatsapp</label>
+                                <input type="text" nbInput fullWidth id="inputWebsite"
+                                placeholder="Mobile No. for SMS/Whatsapp"
+                                formControlName="MobileNoWhatsapp">
+                              </div>
+                            </div>
+
+                          </div>
+
+
+            </div>
+          </div>
+      </nb-accordion-item-body>
+    </nb-accordion-item>
+  <nb-accordion-item  #item [expanded]="isExpand">
+      <nb-accordion-item-header>
+        <h6>Employee Other Info</h6>
+      </nb-accordion-item-header>
+      <nb-accordion-item-body>
+        <div class="row show-grid">
+            <div class="col-12 col-md-12">
+
+
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputFirstName" class="label">Date of Birth</label>
+                              <input type="date" nbInput fullWidth id="inputFirstName"
+                              placeholder="mm/dd/yyyy"
+                              formControlName="DOB" >
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputLastName" class="label">Student Birth Form ID / NIC</label>
+                              <input type="text" nbInput fullWidth id="inputLastName"
+                              placeholder="Student Birth Form ID / NIC"
+                              formControlName="StudentBirthForm"
+                              >
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputLastName" class="label">Orphan Student</label>
+                              <input type="text" nbInput fullWidth id="inputLastName"
+                              placeholder="Select"
+                              formControlName="isOrphan">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputEmail" class="label">Gender</label>
+                              <select  nbSelect fullWidth  class="form-control"  nbInput fullWidth id="inputGender"
+                              placeholder="Gender"
+                              formControlName="Gender">
+                                <option>Select</option>
+                                <option *ngFor="let item of gender" [values]="item.id">{{item.name}}</option>
+                              </select>
+                              <!-- <input type="email" nbInput fullWidth id="inputEmail"
+                              placeholder="Gender"
+                              formControlName="Gender"> -->
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputWebsite" class="label">Cast</label>
+                              <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Cast"
+                              formControlName="Cast">
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="inputWebsite" class="label">OSC</label>
+                              <select  nbSelect fullWidth  class="form-control"  id="inputosc"
+                              placeholder="Religion"
+                              formControlName="OSC">
+                                <option [value]="2">Select</option>
+                                <option [value]="1">Yes</option>
+                                <option [value]="0">No</option>
+                              </select>
+                              <!-- <input type="text" nbInput fullWidth id="inputWebsite" placeholder="SELECT"
+                              formControlName="OSC"> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Any Identification Mark?</label>
+                                <input type="email" nbInput fullWidth id="inputEmail" placeholder="Any Identification Mark?"
+                                formControlName="IdentificationMark">
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputWebsite" class="label">Previous School</label>
+                                <input type="text" nbInput fullWidth id="inputWebsite"
+                                placeholder="Previous School"
+                                formControlName="PreviousSchool">
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputWebsite" class="label">Religion</label>
+                                <select  nbSelect fullWidth  class="form-control"  id="inputWebsite"
+                                placeholder="Religion"
+                                formControlName="Religion">
+                                  <option>Select</option>
+                                  <option *ngFor="let item of religion" [values]="item.id">{{item.name}}</option>
+                                </select>
+                                <!-- <input type="text" nbInput fullWidth id="inputWebsite"
+                                placeholder="Religion"
+                                formControlName="Religion"> -->
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Blood Group</label>
+                                <!-- <input type="textarea" nbInput fullWidth id="inputEmail"
+                               > -->
+                                <select  nbSelect fullWidth  class="form-control"  id="inputbloodgroup"
+                                placeholder="Blood Group"
+                                formControlName="BloodGroup">
+                                  <option>Select</option>
+                                  <option *ngFor="let item of bloodGroup" [values]="item.id">{{item.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Previous ID / Board Roll No</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail"
+                                placeholder="Previous ID / Board Roll No"
+                                formControlName="BoardRollNo"
+                                >
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Select Family</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail" placeholder="Address"
+                                formControlName="Family"
+                                >
+                              </div>
+                            </div>
+
+                            </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Disease If Any?</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail" placeholder="Disease If Any?"
+                                formControlName="Disease"
+                                >
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Any Additional Note</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail" placeholder="Any Additional Note"
+                                formControlName="AdditionalNote"
+                                >
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Total Siblings</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail" placeholder="Total Siblings"
+                                formControlName="TotalSiblings">
+                              </div>
+                            </div>
+
+                            </div>
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <div class="form-group">
+                                <label for="inputEmail" class="label">Address</label>
+                                <input type="textarea" nbInput fullWidth id="inputEmail" placeholder="Address"
+                                formControlName="Address">
+
+                              </div>
+                            </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+
+                              </div>
+                            </div>
+
+
+
+            </div>
+          </div>
+      </nb-accordion-item-body>
+    </nb-accordion-item>
+
+
+
+    </nb-accordion>
+</form>
+<button nbButton status="danger" class="mx-2" type="reset" class="m-2">Reset</button>
+<button nbButton status="primary" type="submit" (click)="onSubmit()">Save</button>
+</nb-card-body>
+</nb-card>

@@ -1,0 +1,72 @@
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-9">
+        <h6 class="text-left">All Students</h6> <!-- Align text to the left -->
+      </div>
+      <div class="col-sm-3 d-flex justify-content-end">
+        <!-- Buttons -->
+        <button nbButton status="primary" size="small" (click)="refresh()" class="mr-2">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <button nbButton status="primary" size="small" (click)="toggleSearch()">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+    <!-- Search fields -->
+
+  </nb-card-body>
+</nb-card>
+<div  class="col-sm-12 d-flex">
+<div class="col-sm-8 d-flex "></div>
+<div class="col-sm-4 d-flex ">
+<input *ngIf="showSearch" type="text" placeholder="Search Student" class="form-control mx-2 ">
+              <nb-select *ngIf="showSearch"  fullWidth placeholder="Select Class"  class="mb-3 ">
+                  <nb-option value="1">Casual Leave</nb-option>
+                  <nb-option value="2">Sick Leave</nb-option>
+                  <nb-option value="3">Birthday Leave</nb-option>
+                </nb-select>
+</div>
+</div>
+
+
+
+<!-- card.component.html -->
+<div class="card-container">
+  <!-- First Card -->
+  <div class="card" *ngFor="let item of EmployeeLists">
+    <div class="profile-section">
+      <img [src]=item.imageUrl alt="Profile Picture" class="profile-pic">
+      <div class="details">
+        <p>{{ item.fullName }}</p>
+        <p>{{ item.roleName }}</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="icon-circle bg-secondary" (click)="search(item.id)">
+        <i class="fas fa-search text-light"></i>
+      </div>
+      <div class=" icon-circle bg-info" (click)="edit()">
+        <i class="fas  fa-edit text-light"></i>
+      </div>
+      <div class="icon-circle bg-danger" (click)="delete()">
+        <i class="fas fa-trash text-light"></i>
+      </div>
+
+    </div>
+  </div>
+  <div class="card">
+      <div class="profile-section">
+          <div class="empty-state" (click)="add()">
+            <i class="fas fa-plus">
+              </i>
+          </div>
+          <div class="details">
+              <h6> Add New</h6>
+
+            </div>
+
+      </div>
+    </div>
+ </div>
