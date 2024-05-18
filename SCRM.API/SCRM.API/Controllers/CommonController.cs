@@ -12,6 +12,13 @@ namespace SCRM.API.Controllers
     public class CommonController : ControllerBase
     {
         private readonly ICommonService _commonService;
+        private readonly IWebHostEnvironment _env;
+
+
+        public CommonController(ICommonService commonService, IWebHostEnvironment env)
+        {
+            _commonService = commonService;
+            _env = env;
 
         public CommonController(ICommonService commonService)
         {
@@ -25,6 +32,39 @@ namespace SCRM.API.Controllers
             var data = _commonService.ProfileDetails(userId);
             return Ok(data);
         }
+
+        [HttpGet("GetRoles")]
+        public IActionResult GetRoles()
+        {
+            var data = _commonService.GetRole();
+            return Ok(data);
+        }
+
+
+
+
+        [HttpPost("UploadImage")]
+        public IActionResult UploadImage(IFormFile image)
+        {
+            if (image == null || image.Length == 0) 
+                return BadRequest("No file uploaded.");
+
+            var uploadsPath = Path.Combine(_env.ContentRootPath, "Images");
+            if (!Directory.Exists(uploadsPath))
+            {
+                Directory.CreateDirectory(uploadsPath);
+            }
+
+            var filePath = Path.Combine(uploadsPath, image.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                  image.CopyToAsync(stream);
+            }
+
+            var fileUrl = $"{Request.Scheme}://{Request.Host}/Images/{image.FileName}";
+            return Ok(new { url = fileUrl });
+        }
+
 
 
     }   

@@ -4,7 +4,8 @@ import { NotFoundComponent } from '../../../pages/miscellaneous/not-found/not-fo
 import { ClassesComponent } from './classes.component';
 import { AllClassesComponent } from './all-classes/all-classes.component';
 import { NewClassesComponent } from './new-classes/new-classes.component';
-
+ import { EditClassComponent } from './edit-class/edit-class.component';
+ 
 
 const routes: Routes = [
   {
@@ -20,7 +21,11 @@ const routes: Routes = [
         path: "newclass",
         component: NewClassesComponent,
       },
-
+       {
+        path: "editClass/:id",
+        component: EditClassComponent,
+      },
+ 
 
       {
         path: "",

@@ -5,7 +5,15 @@
         <div class="col-sm-9">
           <h6 class="text-left">All Classes</h6> <!-- Align text to the left -->
         </div>
-         
+ 
+      </div>
+      <!-- Search fields -->
+
+    </nb-card-body>
+  </nb-card>
+
+
+          
       </div>
       <!-- Search fields -->
        
@@ -13,10 +21,23 @@
   </nb-card>
    
   
-
+ 
 
 <!-- card.component.html -->
 <div class="card-container">
+ 
+    <div class="card" *ngFor="let i of classLists">
+        <div class="row">
+            <div class="col-sm-8 ">
+              <h4 class="custom-text-color">{{i.className}}</h4>
+            </div>
+            <div class="col-sm-2">
+
+             </div>
+             <div class="col-sm-2v">
+              <i class="fas fa-edit mx-2 " (click)="edit(i)" style="font-size:16px; color:rgb(46, 29, 205)"></i>
+                <i class="fas fa-trash  " style="font-size:16px"></i>
+ 
    
     <div class="card" *ngFor="let i of classDetail">
         <div class="row">
@@ -29,10 +50,30 @@
              <div class="col-sm-2v">
               <i class="fas fa-edit mx-2" style="font-size:16px; color:rgb(46, 29, 205)"></i>
                 <i class="fas fa-trash" style="font-size:16px"></i> 
-             </div>
+              </div>
         </div>
 
          <div class="row">
+ 
+            <div class="col-sm-8">
+              <div class="stu">
+              <h2>{{i.totalStudents}}</h2>
+              <h6  class="custom-text-color" > Students</h6>
+            </div>
+            </div>
+            <div class="col-sm-4">
+                <i class="fa fa-graduation-cap" style="font-size:48px;color:rgb(46, 29, 205)"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 text-danger">Boys:{{i.totalBoys}}</div>
+          <div class="col-4 text-success">Girls:{{i.totalGirls}}</div>
+          <!-- <div class="col-4 text-info">:{{i.totalStudents}}</div> -->
+        </div>
+        <!-- <div class="row f">
+            <div class="col-sm-12">
+
+ 
         
             <div class="col-sm-8">
               <div class="stu">
@@ -46,22 +87,31 @@
         </div>
         <div class="row f">
             <div class="col-sm-3">                 
-            </div>
+             </div>
             <div class="col-sm-2"  (click)="search()">
                 <i class="fas fa-search"></i>
             </div>
+              <div class="col-sm-2" (click)="edit(i)">
+                <i class="fas fa-edit "></i>
+ 
              <div class="col-sm-2" (click)="edit()">
                 <i class="fas fa-edit"></i> 
-              </div>
+               </div>
              <div class="col-sm-2"  (click)="delete()">
                 <i class="fas fa-trash"></i>
               </div>
               <div class="col-sm-3">
+   
+
+            </div>
+        </div> -->
+
+ 
                 
             </div>
         </div>
      
-    </div>
+     </div>
     <div class="card">
         <div class="profile-section">
             <div class="empty-state" (click)="add()">
@@ -70,9 +120,17 @@
             </div>
             <div class="details">
                 <h6> Add New</h6>
+ 
+              </div>
+
+        </div>
+      </div>
+   </div>
+ 
                 
               </div>
            
         </div>
       </div>
    </div>
+ 

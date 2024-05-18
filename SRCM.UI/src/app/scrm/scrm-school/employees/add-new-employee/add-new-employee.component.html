@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    <h5>Add New Student</h5></nb-card-header>
+    <h5>Add New employee</h5></nb-card-header>
     <nb-card-body>
         <div class="row">
             <div class="col-sm-9">
@@ -14,12 +14,12 @@
 
             </div>
           </div>
-        <form [formGroup]="StudentBasicForm">
+        <form [formGroup]="EmployeeBasicForm">
 <nb-accordion>
 
     <nb-accordion-item #item [expanded]="isExpand">
       <nb-accordion-item-header>
-        <h6>Student Basic Info</h6>
+        <h6>Employee Basic Info</h6>
       </nb-accordion-item-header>
 
       <nb-accordion-item-body>
@@ -30,7 +30,7 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label for="inputFirstName" class="label">Student Name</label>
+                              <label for="inputFirstName" class="label">Employee Name</label>
                               <label for="inputEmail" class="Mandatory">*</label>
                               <input type="text"
                               nbInput
@@ -53,25 +53,16 @@
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label for="inputLastName" class="label">Select Class</label>
- 
+                              <label for="inputLastName" class="label">Employee role</label>
                               <!-- classLists -->
                               <label for="inputEmail" class="Mandatory">*</label>
                               <select  nbSelect fullWidth  class="form-control"    nbInput fullWidth id="inputLastName"
                               placeholder="Select"
                               formControlName="Class">
                                 <option>Select</option>
-                                <option *ngFor="let item of classLists" [values]="item.id">{{item.className}}</option>
+                                <option *ngFor="let item of RolesLists" [values]="item.id">{{item.roleName}}</option>
                               </select>
 
- 
-                              <label for="inputEmail" class="Mandatory">*</label>
-                              <input type="text"
-                              nbInput fullWidth id="inputLastName"
-                              placeholder="Select"
-                              formControlName="Class"
-                              >
- 
                             </div>
                           </div>
                         </div>
@@ -79,16 +70,14 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputEmail" class="label">Picture</label>
-                               <input type="file" nbInput fullWidth id="inputEmail" (change)="onFileSelected($event)">
- 
-                              <input type="file" nbInput fullWidth id="inputEmail" >
-                               <label class="Mandatory">Max Size 100Kb</label>
+                              <input type="file" nbInput fullWidth id="inputEmail" (change)="onFileSelected($event)">
+                              <label class="Mandatory">Max Size 100Kb</label>
 
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label for="inputWebsite" class="label">Date of Admission</label>
+                              <label for="inputWebsite" class="label">Date of registration</label>
                               <label for="inputEmail" class="Mandatory">*</label>
                               <input type="date" nbInput fullWidth id="inputWebsite"
                               placeholder="Date of Admission"
@@ -97,7 +86,7 @@
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label for="inputWebsite" class="label">Discount In Fee</label>
+                              <label for="inputWebsite" class="label">Monthly salary</label>
                               <label for="inputEmail" class="Mandatory">*</label>
                               <input type="text" nbInput fullWidth id="inputWebsite"
                               placeholder="Discount In Fee"
@@ -109,17 +98,13 @@
                         <div class="row">
                             <div class="col-sm-4">
                               <div class="form-group">
-                                 <!-- <img [src]="this.imageUrl" alt="image "/> -->
-  
-   
+                                <!-- <img [src]="this.imageUrl" alt="image "/> -->
 
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
-                                 <button class="btn-update mt-4" (click)="UploadImage()" nbButton >Upload image</button>
- 
-   
+                                <button class="btn-update mt-4" (click)="UploadImage()" nbButton >Upload image</button>
 
                               </div>
                             </div>
@@ -141,7 +126,7 @@
     </nb-accordion-item>
   <nb-accordion-item  #item [expanded]="isExpand">
       <nb-accordion-item-header>
-        <h6>Student Other Info</h6>
+        <h6>Employee Other Info</h6>
       </nb-accordion-item-header>
       <nb-accordion-item-body>
         <div class="row show-grid">
@@ -179,7 +164,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputEmail" class="label">Gender</label>
-                               <select  nbSelect fullWidth  class="form-control"  nbInput fullWidth id="inputGender"
+                              <select  nbSelect fullWidth  class="form-control"  nbInput fullWidth id="inputGender"
                               placeholder="Gender"
                               formControlName="Gender">
                                 <option>Select</option>
@@ -188,11 +173,7 @@
                               <!-- <input type="email" nbInput fullWidth id="inputEmail"
                               placeholder="Gender"
                               formControlName="Gender"> -->
- 
-                              <input type="email" nbInput fullWidth id="inputEmail"
-                              placeholder="Gender"
-                              formControlName="Gender">
-                             </div>
+                            </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
@@ -204,7 +185,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="inputWebsite" class="label">OSC</label>
-                               <select  nbSelect fullWidth  class="form-control"  id="inputosc"
+                              <select  nbSelect fullWidth  class="form-control"  id="inputosc"
                               placeholder="Religion"
                               formControlName="OSC">
                                 <option [value]="2">Select</option>
@@ -213,10 +194,7 @@
                               </select>
                               <!-- <input type="text" nbInput fullWidth id="inputWebsite" placeholder="SELECT"
                               formControlName="OSC"> -->
- 
-                              <input type="text" nbInput fullWidth id="inputWebsite" placeholder="SELECT"
-                              formControlName="OSC">
-                             </div>
+                            </div>
                           </div>
                         </div>
                         <div class="row">
@@ -238,7 +216,7 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label for="inputWebsite" class="label">Religion</label>
-                                 <select  nbSelect fullWidth  class="form-control"  id="inputWebsite"
+                                <select  nbSelect fullWidth  class="form-control"  id="inputWebsite"
                                 placeholder="Religion"
                                 formControlName="Religion">
                                   <option>Select</option>
@@ -247,11 +225,7 @@
                                 <!-- <input type="text" nbInput fullWidth id="inputWebsite"
                                 placeholder="Religion"
                                 formControlName="Religion"> -->
- 
-                                <input type="text" nbInput fullWidth id="inputWebsite"
-                                placeholder="Religion"
-                                formControlName="Religion">
-                               </div>
+                              </div>
                             </div>
 
                           </div>
@@ -259,7 +233,7 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label for="inputEmail" class="label">Blood Group</label>
-                                 <!-- <input type="textarea" nbInput fullWidth id="inputEmail"
+                                <!-- <input type="textarea" nbInput fullWidth id="inputEmail"
                                > -->
                                 <select  nbSelect fullWidth  class="form-control"  id="inputbloodgroup"
                                 placeholder="Blood Group"
@@ -267,11 +241,7 @@
                                   <option>Select</option>
                                   <option *ngFor="let item of bloodGroup" [values]="item.id">{{item.name}}</option>
                                 </select>
- 
-                                <input type="textarea" nbInput fullWidth id="inputEmail"
-                                placeholder="Blood Group"
-                                formControlName="BloodGroup">
-                               </div>
+                              </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
@@ -342,174 +312,7 @@
       </nb-accordion-item-body>
     </nb-accordion-item>
 
-   <nb-accordion-item  #item [expanded]="isExpand">
-        <nb-accordion-item-header>
-          <h6>Father/Guardien Information</h6>
-        </nb-accordion-item-header>
-        <nb-accordion-item-body>
-          <div class="row show-grid">
-              <div class="col-12 col-md-12">
-                  <nb-card>
-                    <nb-card-body>
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">Father Name</label>
-                                <input type="text" nbInput fullWidth id="inputFirstName"
-                                placeholder="Father Name"
-                                formControlName="FatherName">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputLastName" class="label">Father National ID</label>
-                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Father National ID"
-                                formControlName="FatherNationalID">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputLastName" class="label">Occupation</label>
-                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Occupation"
-                                formControlName="FOccupation">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputEmail" class="label">Education</label>
-                                <input type="email" nbInput fullWidth id="inputEmail" placeholder="Education"
-                                formControlName="FEducation">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputWebsite" class="label">Mobile No</label>
-                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Mobile No"
-                                formControlName="FMobileNo">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputWebsite" class="label">Profession</label>
-                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Profession"
-                                formControlName="FProfession">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
 
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="inputWebsite" class="label">Income</label>
-                                    <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Income"
-                                    formControlName="FIncome">
-                                </div>
-                              </div>
-
-                            </div>
-                        </nb-card-body>
-                    </nb-card>
-              </div>
-            </div>
-        </nb-accordion-item-body>
-      </nb-accordion-item>
-      <nb-accordion-item  #item [expanded]="isExpand">
-        <nb-accordion-item-header>
-          <h6>Mother Info</h6>
-        </nb-accordion-item-header>
-        <nb-accordion-item-body>
-          <div class="row show-grid">
-              <div class="col-12 col-md-12">
-                  <nb-card>
-                    <nb-card-body>
-                        <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">Mother Name</label>
-                                <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Mother Name"
-                                formControlName="MotherName">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputLastName" class="label">Mother National ID</label>
-                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Mother National ID"
-                                formControlName="MotherNationalID">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputLastName" class="label">Occupation</label>
-                                <input type="text" nbInput fullWidth id="inputLastName"
-                                placeholder="Occupation"
-                                formControlName="MOccupation">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputEmail" class="label">Education</label>
-                                <input type="email" nbInput fullWidth id="inputEmail"
-                                placeholder="Education"
-                                formControlName="MEducation">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputWebsite" class="label">Mobile No</label>
-                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Mobile No"
-                                formControlName="MMobileNo">
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label for="inputWebsite" class="label">Profession</label>
-                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Profession"
-                                formControlName="MProfession"
-                                >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
-
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="inputWebsite" class="label">Income</label>
-                                    <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Income"
-                                    formControlName="MIncome"
-                                    >
-                                </div>
-                              </div>
-
-                            </div>
-
-                        </nb-card-body>
-                    </nb-card>
-              </div>
-            </div>
-        </nb-accordion-item-body>
-      </nb-accordion-item>
 
     </nb-accordion>
 </form>

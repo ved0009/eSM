@@ -1,14 +1,16 @@
 /* card.component.css */
-
+ @import url('./../new-classes/new-classes.component.scss');
 /* Common styles */
 .card-container,.stu , .col-sm-2v {
     display: flex;
-    flex-wrap: wrap; 
-    
+    flex-wrap: wrap;
+
   }
 
+
+ 
   
-  .card {
+   .card {
     width: 320px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -24,7 +26,7 @@
   .details {
     text-align: center;
   }
-  
+ 
   .profile-section {
     display: flex;
     flex-direction: column;
@@ -38,7 +40,7 @@
     align-items: center;
     padding: 10px;
   }
-  
+ 
   .icon-circle,
   .icon-circle-add {
     width: 50px;
@@ -58,7 +60,7 @@
   .icon-circle-add:hover {
     background-color: #949faa;
   }
-  
+ 
   .empty-state {
     width: 100px;
     height: 100px;
@@ -68,17 +70,41 @@
     align-items: center;
     background-color: #f0f0f0;
   }
-  
+ 
   /* Responsive styles */
   @media (max-width: 600px) {
     .card {
       width: calc(50% - 20px); /* Two cards per row */
     }
   }
-  
+ 
   @media (max-width: 400px) {
     .card {
       width: calc(100% - 20px); /* Single card per row */
     }
   }
-  
+ 
+  nb-card-body {
+    overflow: hidden;
+  }
+
+  .echart {
+    position: absolute;
+    left: 1em;
+    height: calc(100% - 2 * 1rem);
+    width: 40%;
+  }
+
+  .info {
+    margin-left: 45%;
+    padding-top: 1rem;
+  }
+
+  .value {
+    margin: 0;
+  }
+
+  .details {
+    color: nb-theme(text-hint-color);
+  }
+ 

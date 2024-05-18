@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace SCRM.IService
 {
-    public interface ICommonService
+    public interface IClassess
     {
-        Response CheckDb();
-
-        Response ProfileDetails(int userid);
-  
-        Response GetRole();
- 
-     }
+        Response GetAllClass();   
+        Response GetClassById(int Id);   
+        Response InsertUpdateClass(MClass mClass);   
+    }
 }

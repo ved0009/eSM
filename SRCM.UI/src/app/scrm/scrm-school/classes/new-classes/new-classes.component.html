@@ -8,7 +8,9 @@
               <div class="form-group">
                   <label for="inputFirstName" class="label">Class Name</label>
                   <label for="inputEmail" class="Mandatory">*</label>
-                <input type="text" nbInput fullWidth id="inputWebsite" 
+                 <input type="text" nbInput fullWidth id="inputWebsite"
+                 <input type="text" nbInput fullWidth id="inputWebsite" 
+   
                 placeholder="Name of Class"
                 formControlName="classname"
                  >
@@ -18,15 +20,19 @@
               <div class="form-group">
                   <label for="inputLastName" class="label">Monthly Tuition Fees</label>
                   <label for="inputEmail" class="Mandatory">*</label>
+                 <input type="text" nbInput fullWidth id="inputWebsite"
+ 
                 <input type="text" nbInput fullWidth id="inputWebsite" 
-                placeholder="Monthly Tuition Fees"
+                 placeholder="Monthly Tuition Fees"
                 formControlName="tutionfee"
                  >
               </div>
             </div>
           </div>
+ 
+ 
           
-        <div class="form-group">
+         <div class="form-group">
                 <label for="inputLastName" class="label">Select Class Teacher</label>
                 <label for="inputEmail" class="Mandatory">*</label>
                 <nb-select  fullWidth placeholder="Select"
@@ -36,6 +42,14 @@
                     <nb-option value="3">3</nb-option>
                     <nb-option value="4">4</nb-option>
                   </nb-select>
+ 
+        </div>
+      </form>
+        <button type="submit"     class="submit-button" (click)="onSubmit()">Create</button>
+
+    </nb-card-body>
+  </nb-card>
+ 
                
         </div>
       </form>
@@ -43,3 +57,4 @@
      
     </nb-card-body>
   </nb-card>
+ 
